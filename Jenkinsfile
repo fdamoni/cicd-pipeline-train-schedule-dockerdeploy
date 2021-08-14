@@ -14,6 +14,7 @@ pipeline {
             }
             steps {
                 script {
+                    echo "DOCKER_HUB_USERNAME testing=" $DOCKER_HUB_USERNAME
                     app = docker.build("<DOCKER_HUB_USERNAME>/train-schedule")
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
